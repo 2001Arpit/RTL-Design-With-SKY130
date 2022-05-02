@@ -164,5 +164,13 @@ library to a target architecture.
   
 ![multiple modules show](https://user-images.githubusercontent.com/92947276/166235629-cd497e98-fdb6-4241-98cb-684cc1712698.PNG)
   
-- Compared to the logical circuit we designed earlier, we can observe that instead of AND and OR cells directly, Yosys has decided to _preserve the hierarchy_.  
+- Compared to the logical circuit we designed earlier, we can observe that instead of AND and OR cells directly, Yosys has decided to __preserve the hierarchy__.  
+- When we write the netlist we can see that the hierarchy is preserved again.
+- One interesting thing that can be obeserved from the netlist is that instead of using a OR gate, Yosys decided to use a NAND gate with inverted inputs.
+  
+![multiple module write verilog2](https://user-images.githubusercontent.com/92947276/166236851-49f47c71-f76e-48b0-bf6c-12518b96e52e.PNG)
+  
+- The reason for this is __NOT__ that NAND gates have considerably less area and power consumption as seen in the .lib file since the area of inverters combined with that of NAND gates is greater than that of a OR gate.
+  
+![comparisiom2](https://user-images.githubusercontent.com/92947276/166238457-c438d09a-3f45-4563-ba1a-42bacb9d8381.PNG)
 
