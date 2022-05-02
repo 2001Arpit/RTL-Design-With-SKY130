@@ -62,10 +62,27 @@ design.
 on partly selected designs.
   - -top: Use the specified module as top module.
 -Now we will map the design to a specified cell library (in our case sky130 library).
-- 'abc -liberty ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib`
+- `abc -liberty ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib`
 - According to Yosys documentation:
   - abc: This pass uses the ABC tool for technology mapping of yosys's internal gate
 library to a target architecture.
   - -liberty: generate netlists for the specified cell library (using the liberty
         file format).
-- 
+- To view the resulting design we will simply type `show`.
+
+![counter show](https://user-images.githubusercontent.com/92947276/166219871-a41b296f-e677-440a-9f00-bd5af0affb04.PNG)
+
+- The various blocks present in the design are nothing but standard cells which are specified in the .lib file.
+- One observation made during this workshop is that buffers are inserted in the design while synthesising combinational circuits, but that was not the case with sequential circuits. Here is an example of a mux:
+  
+![mux show](https://user-images.githubusercontent.com/92947276/166220568-2af6ca6d-1c36-4aef-909e-f693504c46ed.PNG)
+  
+- I believe that this is due to the .lib file we are using.
+
+- Now we can write the netlist for the design. A netlist is a gate-level description of your design that specifies the components and their interconnections.
+- `write_verilog -noattr good_counter_net.v`
+- Use the -noattr to make the netlist easy to read.
+  
+![mux write verilog](https://user-images.githubusercontent.com/92947276/166221185-0c4e9f4c-0586-4cf4-b2e7-195bbe3eb1b3.PNG) ![mux write verilog noattr](https://user-images.githubusercontent.com/92947276/166221205-5e757817-dff0-4d21-b7b0-d3e50f4eb3b3.PNG)
+
+
