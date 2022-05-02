@@ -48,6 +48,9 @@ design.
 - To start Yosys just type `yosys` in the terminal.
 - We will start by reading our library files; this lets the synthesizer know what standard cells we are using: 
 - 'read_liberty -lib ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib`
+
+![read_liberty](https://user-images.githubusercontent.com/92947276/166224775-728c491c-3cd6-4166-9114-1b7023a02e80.PNG)
+  
 - According to Yosys documentation: 
   - read_liberty: Read cells from liberty file as modules into current design.
   - lib: Only create empty blackbox modules.
@@ -85,12 +88,17 @@ library to a target architecture.
   
 ![mux write verilog noattr](https://user-images.githubusercontent.com/92947276/166221205-5e757817-dff0-4d21-b7b0-d3e50f4eb3b3.PNG) ![mux write verilog](https://user-images.githubusercontent.com/92947276/166221185-0c4e9f4c-0586-4cf4-b2e7-195bbe3eb1b3.PNG) 
 
-## Standard cell Library
+# Standard cell Library
   
-- sky130_fd_sc_hd__tt_025C_1v80.lib : 
+- sky130_fd_sc_hd__tt_025C_1v80.lib:
+  -sky130: 130nm technology
+  - tt   : typical
+  - 025C : 25°C (operating temperature)
+  - 1v80 : operating voltage
+  
+## Different Flavours of cells
 - The .lib file is a collection of logical modules. It contains different 'flavours' of gates:
   - slow
-  - medium 
   - fast 
 - They refer to the logic gate's speed (propagation delay). We utilize different gates depending on our setup and hold requirements. For meeting setup time, we require faster cells, but we need slower cells to meet hold time.
 - Setup and hold time creates a window around the clock edge where the data cannot be toggled, or it can cause metastability (uncertainty). 
@@ -104,3 +112,13 @@ library to a target architecture.
   - Faster cells are wider, whereas slower cells are narrower.
   - This also makes the faster cells occupy more area and consume more power.
 - We might also need to use slow cells due to the maximum operating frequency of the design. The maximum frequency is limited by the critical path (path whose propagation delay is the highest). 
+
+## PVT
+  - PVT stands for Process, Voltage, Temperature. It is a very common to see these three things once you open your library file.
+  ![pvt](https://user-images.githubusercontent.com/92947276/166227047-64d166ba-5e0b-4198-8aaa-a0dcc8c5edaa.PNG)
+  
+- There are various parameters mentioned in the .lib file. Some of them are 'technology' and 'delay model'.
+  
+![library](https://user-images.githubusercontent.com/92947276/166227799-a7355b68-f9a3-4be0-84d6-2bd27ecb6321.PNG)
+
+
