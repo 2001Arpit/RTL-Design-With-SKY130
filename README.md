@@ -45,7 +45,7 @@ We will achieve the above using iverilog for simulations and yosys for synthesis
 - [Case Statements](#Case-Statements)
   - [Incomplete Case](#Incomplete-Case)
   - [Partial Assignment](#Partial-Assignment)
-  - [Overlapping cases](#Overlapping cases)
+  - [Overlapping cases](#Overlapping-cases)
 - [Loops](#Loops)
   - [For Loops](#For-Loops)
 
