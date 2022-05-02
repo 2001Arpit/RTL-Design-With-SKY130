@@ -132,5 +132,6 @@ library to a target architecture.
   
 - We can observe that the leakage power and area increase (left to right). They are all and2 gates, but they all use a different width of transistors. As the width of the transistors increases, so does the area and power of the cell.
   
-- 
+# Synthesis
+## Hierarchical Synthesis
   
