@@ -17,3 +17,8 @@ We will achieve the above using iverilog for simulations and yosys for synthesis
 - [Introduction](#introduction)
 
 # Introduction
+## RTL (Register Transfer Level) Design
+Transistor-level design connects transistors into circuits to build gates or other components. Combinational or sequential circuits whose building blocks are primarily logic gates are thus called logic-level design.
+Designing circuits whose building blocks are registers and other datapath components consists of transferring data from registers through other datapath components like adders and back to registers. Such design is thus called register-transfer level design or RTL design.
+## iverilog
+
