@@ -357,6 +357,15 @@ after the passes that do the actual work.
   
 ![state opt2](https://user-images.githubusercontent.com/92947276/166289815-69c1c793-483c-4ee2-84ae-f2dbd9d8300b.PNG)
 
+# Gate Level Simulation
+- Gate level simulation or GLS is the simulation of the gate-level netlist obtained from Yosys. This Simulation is done using iverilog.
+- In addition to the netlist, we will also pass the standard cell libraries and testbench to iverilog.
+- By doing this we are making sure we dont have any Synthesis-Simulation mismatch, i.e our RTL simulation should give the same results as our GLS.
+- We will explore this by taking the following example:
+  
+![mux codes](https://user-images.githubusercontent.com/92947276/166302494-6fbe933d-a87b-44a0-9437-13d8d1b1490c.PNG)
+ 
+
 
   
   
