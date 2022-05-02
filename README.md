@@ -420,13 +420,32 @@ This is correct because the gate-level netlist is not concerned with the sensiti
 - We can see that they are the same, thus proving that the netlist does not care about an incomplete sensitivity list.
 - It should also be noted that Yosys will try to warn you if your design has an incomplete sensitivity list.
 
-
+## Blocking and Non-Blocking Statements
+- Blocking: represented by `=`. They execute statements in the order they are written.
+- Non-Blocking: represented by `<=`. They execute all the RHS when always block is entered and assigns to LHS.
+- These come into picture when using always block.
+-Let us consider the following code to understand the significance of blocking and non-blocking statements:
+                                    
+![Screenshot (2)](https://user-images.githubusercontent.com/92947276/166312659-af13a87f-f7c1-4d78-aab9-8d3cfedc9139.png)
   
+- Here is the logical circuit:
+                                    
+![blocking caveat diagram](https://user-images.githubusercontent.com/92947276/166312857-5d733608-536e-496c-af54-39d74aca24d5.PNG)
   
+- We can see that the `x&c` is assigned to `y` before the value of `x` is resolved. Thus it will look at the previous value of `x`, which is the behaviour of a latch. This is undesirable in combinational circuits.
+Let us look at the simulation result:
+                                    
+![blocking caveat gtk](https://user-images.githubusercontent.com/92947276/166313579-109ff9e9-e7d3-4efa-99fd-b2e2bf12717c.PNG)
   
-  
-  
-  
+- We can see the output is considering the past value of `x` to get its result.
+- This gets resolved when we conduct GLS:
+                                    
+![blocking caveat gls gtk](https://user-images.githubusercontent.com/92947276/166314090-f379ab9b-2b76-4147-9ddd-ffbec0092dbc.PNG)
+                                    
+- The results are now appearing properly.                                   
+                                      
+# If Statements
+                                    
   
   
   
