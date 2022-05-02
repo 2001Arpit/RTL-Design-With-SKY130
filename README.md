@@ -40,6 +40,14 @@ We will achieve the above using iverilog for simulations and yosys for synthesis
     - [Cloning](#Cloning)
 - [Gate Level Simulation](#gate-level-simulation)
   - [Incomplete sensitivity list](#Incomplete-sensitivity-list) 
+  - [Blocking and Non-Blocking Statements](#Blocking-and-Non-Blocking-Statements)
+- [If Statements](#If-Statements)
+- [Case Statements](#Case-Statements)
+  - [Incomplete Case](#Incomplete-Case)
+  - [Partial Assignment](#Partial-Assignment)
+  - [Overlapping cases](#Overlapping cases)
+- [Loops](#Loops)
+  - [For Loops](#For-Loops)
 
 # Introduction
 ## RTL (Register Transfer Level) Design
