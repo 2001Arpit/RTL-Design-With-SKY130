@@ -128,5 +128,9 @@ library to a target architecture.
   
 - We will now compare the different flavours of the same gate:
   
-<img src="![and2_0 cell](https://user-images.githubusercontent.com/92947276/166230003-7f8a6c32-e544-4130-926e-b2269d428fa5.PNG)" width="425"/> <img src="![and2_2 cell](https://user-images.githubusercontent.com/92947276/166230028-40bd1d37-9ebd-442a-b3a4-f1a44749bf19.PNG)" width="425"/> <img src="![and2_4 cell](https://user-images.githubusercontent.com/92947276/166230078-297b98b3-6db3-45a7-9c01-79e5c0ae9ef3.PNG)
-" width="425"/> 
+![comparisiom](https://user-images.githubusercontent.com/92947276/166231056-e30eb288-89d9-4053-9059-191737720721.PNG)
+  
+- We can observe that the leakage power and area increase (left to right). They are all and2 gates, but they all use a different width of transistors. As the width of the transistors increases, so does the area and power of the cell.
+  
+- 
+  
