@@ -53,3 +53,19 @@ design.
   - lib: Only create empty blackbox modules.
 - Note that the address to the .lib file may differ.
 - Now we will read our verilog file 
+- `read_verilog good_counter.v`
+- After reading the Verilog file, it will let you know if there are any errors or warnings.
+- We will know synthesize the design:
+- `synth -top good_counter`
+- According to Yosys documentation:
+  - synth: This command runs the default synthesis script. This command does not operate
+on partly selected designs.
+  - -top: Use the specified module as top module.
+-Now we will map the design to a specified cell library (in our case sky130 library).
+- 'abc -liberty ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib`
+- According to Yosys documentation:
+  - abc: This pass uses the ABC tool for technology mapping of yosys's internal gate
+library to a target architecture.
+  - -liberty: generate netlists for the specified cell library (using the liberty
+        file format).
+- 
