@@ -445,10 +445,48 @@ Let us look at the simulation result:
 - The results are now appearing properly.                                   
                                       
 # If Statements
+- If statements in Verilog work similarly to if statements in any other language. They have priority, with the top one having the highest priority.
+- If statements in Verilog must be placed inside always block.
+- If statements are often used to realise multiplexer circuits. But we must be careful as incomplete if statements give rise to __infered__ latches.
+- Take the following code to understand this problem:
                                     
+![incomplete if code](https://user-images.githubusercontent.com/92947276/166316115-6c898931-57eb-4452-a195-2ea66e20ce8c.PNG)
+                                   
+- The select line defines only one input (when select is 1) in the first code. This leaves the other input (when select is 0) undefined. Therefore the synthesis tool considers it as preserving the previous value of output.
+- When simulated we see the following result:
+                                    
+![incomplete if gtk](https://user-images.githubusercontent.com/92947276/166317658-5fe36db9-b105-450f-91fd-5a0f46d7572a.PNG)
+
+- It is observed that when the select line (i0) goes low, the output latches to its previous value.
+- Even the synthesis report lets us know that there is a latch present in the design:
+                                    
+![incomplete if synth](https://user-images.githubusercontent.com/92947276/166317997-25ef2f8d-e0e7-4d62-89f3-a488bfa282f1.PNG)
+                                  
+- A latch is also observed in the logic diagram:
+                                    
+![incomplete if show](https://user-images.githubusercontent.com/92947276/166318335-2fbade58-45b2-47b2-b80e-48eddf520c8e.PNG)
+                                                                        
+- In the second code, a similar occurence takes place. Here is what the code is trying to implement:                                    
   
+![incomplete if2 circuit](https://user-images.githubusercontent.com/92947276/166318681-d265fe99-ff16-41c8-a295-4e2c887f5254.PNG)
   
+- The simulation results are:
+                                    
+![incomplete if2 gtk latching](https://user-images.githubusercontent.com/92947276/166318820-331e9019-e97c-4dad-8ec1-48b9599adc90.PNG)
   
+- It is observed that when both select lines go low, the output will latch to its previous value.
+- After synthesis we get this logic diagram:
+                                    
+![incomplete if2 show](https://user-images.githubusercontent.com/92947276/166319287-2a52c0d3-89af-4f6a-b20e-e3c871794b33.PNG)
   
-  
-  
+- For better understanding, here is the logic gate diagram of the same:
+
+![incomplete if2 show circuit](https://user-images.githubusercontent.com/92947276/166319451-33e62e05-96ff-495e-be23-7192194b4813.PNG)
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
