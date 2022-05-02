@@ -47,4 +47,9 @@ design.
 - We will consider the same example as mentioned above.
 - To start Yosys just type `yosys` in the terminal.
 - We will start by reading our library files; this lets the synthesizer know what standard cells we are using: 
--                                     'read_liberty -lib ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib`
+- 'read_liberty -lib ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib`
+- According to Yosys documentation: 
+-- read_liberty: Read cells from liberty file as modules into current design.
+-- lib: Only create empty blackbox modules.
+- Note that the address to the .lib file may differ.
+- Now we will read our verilog file 
