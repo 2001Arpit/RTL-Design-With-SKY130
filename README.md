@@ -15,7 +15,9 @@ We will achieve the above using iverilog for simulations and yosys for synthesis
 
 # Table of Contents
 - [Introduction](#introduction)
-  -[RTL](#RTL) 
+  - [RTL](#rtl) 
+  - [Icarus Verilog](#icarus-verilog)
+  - [Yosys](#yosys)
 
 # Introduction
 ## RTL (Register Transfer Level) Design
