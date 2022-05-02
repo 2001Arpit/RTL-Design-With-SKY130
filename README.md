@@ -557,6 +557,43 @@ Let us look at the simulation result:
                                     
 ![bad case gls gtk](https://user-images.githubusercontent.com/92947276/166327067-7ac7d65c-e13b-4a3a-9233-73f65760cc05.PNG)
                                     
+# Loops
+- In verilog we use two types of loops:
+  - for loop     : Used for evaluating expressions. 
+  - for generate : Used to instatiate hardware.
+
+## For Loops                                    
+- Consider the following code:                                    
+                                    
+![mux gen code](https://user-images.githubusercontent.com/92947276/166328718-b2ee1bfc-a3e9-4e78-9096-2085fec6e88f.png)
+                                    
+- It uses the for loop to create a 4:1 mux. As we have seen previously, the same thing can be made using if statements, case statements, and boolean expressions. This method is beneficial in creating larger order mux, e.g.: 32:1 mux.
+- Simulation result:
+                                    
+![mux gen gtk](https://user-images.githubusercontent.com/92947276/166329205-872171bd-f40e-438c-867c-d7518e021631.PNG)
+                                    
+- An interesting thing was observed in the synthesis, the design had a latch in it:
+                                    
+![mux gen synth](https://user-images.githubusercontent.com/92947276/166329483-868c02a1-78cd-4679-80ac-e4055ad4a37a.PNG)
+![mux gen show](https://user-images.githubusercontent.com/92947276/166329509-d2455327-2677-4d2a-894f-fbbc24da04bd.PNG)
+                                    
+-As seen in the logic diagram, this latch is not doing anything since it is always enabled. This might be because we have defined the output as a reg. 
+                                    
+- The following code shows the difference between using case statements and and for loop for a design.                                     
+                                    
+![demux codes](https://user-images.githubusercontent.com/92947276/166330814-1609cba6-a03b-4f64-abff-28270caa8a71.PNG)
+                                    
+- It is observed that the for loop will always take 3 lines (for loop) to make a demux of any size. But when using case we will have to define every condition.
+- Simulation:                                    
+                                    
+![demux case gtk](https://user-images.githubusercontent.com/92947276/166331164-24c46b13-4060-45ee-8592-7aacab6b9072.PNG)
+                                    
+- Synthesis:
+                                    
+![demux case synth](https://user-images.githubusercontent.com/92947276/166331351-17fdf057-886f-4eca-a422-cf3fff4057b7.PNG)
+![demux case show](https://user-images.githubusercontent.com/92947276/166331371-b5fbcc4f-ff8f-4a87-b060-5fb4de8348f3.PNG)
+                                    
+- We can see that there were no latches in this design unlike mux_generate.v. We did not use reg type outputs. Therefore we can confidently conclude that the latch in mux_gen was due to reg type output.                                    
                                     
                                     
                                     
