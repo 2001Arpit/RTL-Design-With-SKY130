@@ -358,13 +358,39 @@ after the passes that do the actual work.
 ![state opt2](https://user-images.githubusercontent.com/92947276/166289815-69c1c793-483c-4ee2-84ae-f2dbd9d8300b.PNG)
 
 # Gate Level Simulation
-- Gate level simulation or GLS is the simulation of the gate-level netlist obtained from Yosys. This Simulation is done using iverilog.
+- Gate level simulation or GLS is the simulation of the gate-level netlist obtained from Yosys. This simulation is done using iverilog.
 - In addition to the netlist, we will also pass the standard cell libraries and testbench to iverilog.
-- By doing this we are making sure we dont have any Synthesis-Simulation mismatch, i.e our RTL simulation should give the same results as our GLS.
+- By doing this, we are making sure we don't have any Synthesis-Simulation mismatch, i.e. our RTL simulation should give the same results as our GLS.
+- Synthesis-Simulation mismatch can happen due to the following reasons:
+  - Incomplete sensitivity list
+  - Blocking and non-blocking statements
+  
+## Incomplete sensitivity list
 - We will explore this by taking the following example:
   
 ![mux codes](https://user-images.githubusercontent.com/92947276/166302494-6fbe933d-a87b-44a0-9437-13d8d1b1490c.PNG)
  
+- In the code bad_mux.v, the sensitivity list only consists of `sel`. It means that the output will only change after `sel` has changed.
+- This behavior can be observed in the RTL simulation:
+
+![bad mux rtl simulation](https://user-images.githubusercontent.com/92947276/166303893-d6659698-99fc-44b7-8bfa-ea1508fdd58a.PNG)
+
+- We can observe that the output is not changing when the input changes. This is incorrect behavior.
+- Now lets compare these results to GLS.
+- First write a net-list using Yosys.
+- We will now use iverilog to conduct GLS. Type the command:
+- `iverilog ../my_lib/verilog_model/primitives.v ../my_lib/verilog_model/sky130_fd_sc_hd.v bad_mux_net.v tb_ bad_mux.v`
+- From here, the procedure for gtkwave is the same. It will produce the following result:
+  
+![bad mux gls simulation](https://user-images.githubusercontent.com/92947276/166304752-9d6ef78a-5943-4aa8-b7a4-5d4893ed95ae.PNG)
+
+- We can observe that this is the correct behaviour of a 2:1 mux.
+This is correct because the gate-level netlist is not concerned with the sensitivity list but only with the interconnections of various components.
+- In the other two codes, we will not get any synthesis-simulation mismatch.
+- Here is a comparision between the netlist of good and bad mux:
+
+![good mux net](https://user-images.githubusercontent.com/92947276/166305853-584dca28-27b0-4674-8d5d-4ec6d702b9e4.PNG)
+![bad mux net](https://user-images.githubusercontent.com/92947276/166305865-576870f5-9223-4314-8c20-8ec9c1eca43a.PNG)
 
 
   
