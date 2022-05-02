@@ -483,6 +483,25 @@ Let us look at the simulation result:
 
 ![incomplete if2 show circuit](https://user-images.githubusercontent.com/92947276/166319451-33e62e05-96ff-495e-be23-7192194b4813.PNG)
                                     
+# Case Statements
+- Case statements in Verilog are placed inside always block and must have an output register type variable.                                     
+- One must be cautious when using case statements:
+  - Incomplete cases cause inferred latches.
+  - Partial assignments also cause inferred latches.
+  - Overlapping cases give rise to unpredictable behaviour.                                   
+  - Default statement does not guarantee the absence of inferred latches.                                 
+- Consider the following codes:
+                                    
+![cases cose](https://user-images.githubusercontent.com/92947276/166322458-65beeb8c-f819-488f-b629-ff02c42f3067.PNG)
+                                    
+- In the first code, there is an attempt at creating a mux, But the code failed to define all possible values of `sel`.
+- From the simulation it is observed that the output latches at sel = 10 (undefined):
+
+![incomplete case gtk latching](https://user-images.githubusercontent.com/92947276/166323157-8c400bb1-af38-4bac-bcce-c75a662652c9.PNG)
+                                    
+                                    
+                                    
+                                    
                                     
                                     
                                     
