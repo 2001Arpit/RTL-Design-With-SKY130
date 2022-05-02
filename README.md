@@ -158,5 +158,11 @@ library to a target architecture.
 ![multiple module synth2](https://user-images.githubusercontent.com/92947276/166235040-367130ed-9664-4a2f-bd95-67abe198e261.PNG)
   
 - This will show you all the submodules in your design along with your design hierarchy. In addition, we can observe that the report mentions which cells will be used in the sub-modules.
+ 
+- We will now map the standard cells to the design using `abc -liberty`.
+- We are now ready to view the logic diagram:
   
+![multiple modules show](https://user-images.githubusercontent.com/92947276/166235629-cd497e98-fdb6-4241-98cb-684cc1712698.PNG)
+  
+- Compared to the logical circuit we designed earlier, we can observe that instead of AND and OR cells directly Yosys has decided to *preseve the hierarchy*  
 
