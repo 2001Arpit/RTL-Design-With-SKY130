@@ -499,6 +499,29 @@ Let us look at the simulation result:
 
 ![incomplete case gtk latching](https://user-images.githubusercontent.com/92947276/166323157-8c400bb1-af38-4bac-bcce-c75a662652c9.PNG)
                                     
+- Synthesis result also show a latch:
+                                    
+![incomplete case show](https://user-images.githubusercontent.com/92947276/166323515-fdc4ab47-8d31-45fb-9fe9-dae53e5336cf.PNG)
+                                    
+- Here is a simplified version of the same:                                    
+                                    
+![incomplete case circuit](https://user-images.githubusercontent.com/92947276/166323596-01cadf43-cfbe-4e8f-b89f-b83b5f3bf0e5.PNG)
+                                    
+- In the second code we have fixed this issue by simply adding a default statement, which will handle any undefined case.
+- Proper operation is verified from the simulation:                                    
+                                    
+![complete case gtk no latching](https://user-images.githubusercontent.com/92947276/166323941-3e756378-17e9-439f-bdbe-5174105e9bb6.PNG)
+                                    
+- At sel = 10, the output follows `i2` as defined by the default case.                                     
+- Synthesis results in the following:                                    
+                                    
+![complete case show](https://user-images.githubusercontent.com/92947276/166324258-8c33f014-dc57-43cb-8523-f2435aad396e.PNG)
+                                    
+- Here is a simplified version of the same:                                    
+                                    
+![complete case circuit](https://user-images.githubusercontent.com/92947276/166324315-976b5885-1cec-43a9-9234-33f53bc39ccf.PNG)
+                                    
+                                    
                                     
                                     
                                     
