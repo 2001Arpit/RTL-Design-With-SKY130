@@ -122,6 +122,14 @@ library to a target architecture.
 - Example: lets look for a a2111o cell. The function of this cell is ((a&b)|c|d|e).
 - `:/a2111o`
 
-![a2111o](https://user-images.githubusercontent.com/92947276/166228616-734c7d39-990d-4dfe-8775-87ea39456129.PNG)
+![a2111o](https://user-images.githubusercontent.com/92947276/166228884-09b6cc07-f9b4-496a-8920-620f3eeffc75.PNG)
 
-
+- It will specify leakage power, value and delay for all 32 combinations.
+  
+- We will now compare the different flavours of the same gate:
+  
+<p float="left">
+  <img src="![and2_0 cell](https://user-images.githubusercontent.com/92947276/166229680-93ef2cd0-82f0-4a5e-ab73-f9b596b07fe0.PNG)" width="100" />
+  <img src="![and2_2 cell](https://user-images.githubusercontent.com/92947276/166229714-6454d3d4-3bb2-4276-9327-4d4718fa7861.PNG)" width="100" /> 
+  <img src="![and2_4 cell](https://user-images.githubusercontent.com/92947276/166229741-6d00544e-7949-454c-8aeb-6c6edf79e309.PNG)" width="100" />
+</p>  
