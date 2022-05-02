@@ -164,5 +164,5 @@ library to a target architecture.
   
 ![multiple modules show](https://user-images.githubusercontent.com/92947276/166235629-cd497e98-fdb6-4241-98cb-684cc1712698.PNG)
   
-- Compared to the logical circuit we designed earlier, we can observe that instead of AND and OR cells directly Yosys has decided to *preseve the hierarchy*  
+- Compared to the logical circuit we designed earlier, we can observe that instead of AND and OR cells directly, Yosys has decided to #preserve the hierarchy#.  
 
