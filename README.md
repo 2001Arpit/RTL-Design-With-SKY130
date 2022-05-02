@@ -220,8 +220,41 @@ library to a target architecture.
   
 ![all reset](https://user-images.githubusercontent.com/92947276/166249167-b370a658-6809-46cd-b9b1-92a057c567d7.PNG)
   
-- A flop with Asynchronous reset can be reset at any time irrespevctive of clock edge, that is why we have put `posedge clk, posedge reset` in the sensitivity list.
+- A flop with Asynchronous reset can be reset at any time irrespevctive of clock edge, that is why we have put `(posedge clk, posedge reset)` in the sensitivity list.
 - A __sensitivity list__ has all the inputs at which the always block will activate.
 
+![reset async](https://user-images.githubusercontent.com/92947276/166250000-00170a66-7976-47dc-b2b3-add5a1830992.PNG)
+
+- After simulating the design using Icarus Verilog, the following results were observed:
   
+![reset async in action](https://user-images.githubusercontent.com/92947276/166250338-506beea0-4dc1-47c7-a41b-ed06fab66218.PNG)
+
+- We can see that the reset is activating irrespective of the clock edge.
+- For synthesising a designs with flops we need to map it using `dfflibmap -liberty ../my_lib/lib/sky130_fd_sc_hd__tt_025C_1v80.lib` followed by mapping with abc command.
+- After synthesis we get the following logic diagram:
   
+![reset async show](https://user-images.githubusercontent.com/92947276/166250663-a3568460-af72-46ca-992a-48a46cd7dfc2.PNG)
+
+- A flop with synchronous reset only resets the flop when the reset is active at the clock edge. That is why the always block will only activate at the positive clock edge.
+  
+![reset sync](https://user-images.githubusercontent.com/92947276/166251481-3d0a9f23-244f-4a51-b872-95f762a9f839.PNG)
+
+- In the above logic circuit we can see that the mux output will go low at reset = 1. But this reset will only be get in effect when the next positive clock edge comes.
+- After simulation using Icarus Verilog we observe the following:
+  
+![reset sync in action](https://user-images.githubusercontent.com/92947276/166254675-9ce4915a-910a-411b-b88d-97c4855b43dd.PNG)
+
+- We can see that the effect of reset is only reflected in the output at the next positive clock edge.
+- A flop with both asynchronous and synchronous resets will reset at both the conditions.
+  
+![reset sync async](https://user-images.githubusercontent.com/92947276/166256307-500db418-5931-4ba5-8587-fb7753f384b9.PNG)
+
+# Special Optimizations
+- We will work with the following codes for this section:
+  
+![mult code](https://user-images.githubusercontent.com/92947276/166258722-843afe82-b3d0-4601-8c45-019be7292df1.PNG)
+
+- If we look at the first code, it is simply taking a 3 bit input and multiplying it with 2 to get a 4 bit output. The truth table is as followed:
+
+![TRUTH](https://user-images.githubusercontent.com/92947276/166260750-ad1eac61-a2d2-4b20-9e8e-ab5daa120fb7.PNG)
+
