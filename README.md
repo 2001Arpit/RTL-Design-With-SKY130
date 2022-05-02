@@ -170,7 +170,12 @@ library to a target architecture.
   
 ![multiple module write verilog2](https://user-images.githubusercontent.com/92947276/166236851-49f47c71-f76e-48b0-bf6c-12518b96e52e.PNG)
   
-- The reason for this is __NOT__ that NAND gates have considerably less area and power consumption as seen in the .lib file since the area of inverters combined with that of NAND gates is greater than that of a OR gate.
+- The reason for this is __NOT__ that NAND gates have considerably less area and power consumption as seen in the .lib file since the area of inverters combined with that of NAND gates is greater than that of an OR gate.
   
 ![comparisiom2](https://user-images.githubusercontent.com/92947276/166238457-c438d09a-3f45-4563-ba1a-42bacb9d8381.PNG)
+
+- The real reason to choose NAND gates over OR gates is due to the layout of PMOS inside the gates. In practical applications, we do not prefer PMOS in series. This is because the W/L ratio of PMOS is more than NMOS and the mobility of holes in PMOS is also less than the mobility of electrons in NMOS; this causes an increase in resistance and delay in switching. Therefore we prefer to keep PMOS in parallel.
+  
+![or-gate-cmos](https://user-images.githubusercontent.com/92947276/166240882-911a9524-73f7-4f16-b0b7-fcad54dfde63.jpg)
+![nand](https://user-images.githubusercontent.com/92947276/166240910-a56aafc9-dabd-40fc-8488-3224f17d0e02.jpg)
 
