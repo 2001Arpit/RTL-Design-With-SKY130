@@ -85,4 +85,18 @@ library to a target architecture.
   
 ![mux write verilog noattr](https://user-images.githubusercontent.com/92947276/166221205-5e757817-dff0-4d21-b7b0-d3e50f4eb3b3.PNG) ![mux write verilog](https://user-images.githubusercontent.com/92947276/166221185-0c4e9f4c-0586-4cf4-b2e7-195bbe3eb1b3.PNG) 
 
+## Standard cell Library
+  
+- The .lib file is a collection of logical modules. It contains different 'flavours' of gates:
+  - slow
+  - medium 
+  - fast 
+- They refer to the logic gate's speed (propagation delay). We utilize different gates depending on our setup and hold requirements. For meeting setup time, we require faster cells, but we need slower cells to meet hold time.
+- Setup and hold time creates a window around the clock edge where the data cannot be toggled, or it can cause metastability (uncertainty). 
+  
+![image](https://user-images.githubusercontent.com/92947276/166223384-4d4967e4-f105-4ba0-9a34-3509861a4aa7.png)
 
+What makes these cells fast and slow are:
+  - Charging/ Discharging of capacitance.
+  - Faster cells are wider, whereas slower cells are narrower.
+  - This also makes the faster cells occupy more area and consume more power.
