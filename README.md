@@ -14,6 +14,7 @@ This workshop aims to teach
 We will achieve the above using iverilog for simulations and yosys for synthesis. In addition, we will be using sky130 standard cell libraries. It will tell our synthesis tool which component to use for our design. This library contains details like power consumption, delays, area, etc.
 
 # Table of Contents
+## Day 1
 - [Introduction](#introduction)
   - [RTL](#rtl) 
   - [Icarus Verilog](#icarus-verilog)
@@ -21,6 +22,7 @@ We will achieve the above using iverilog for simulations and yosys for synthesis
 - [Standard Cell Library](#standard-cell-library)
   - [Different Flavours of cells](#different-flavours-of-cells)
   - [PVT](#pvt)
+## Day 2
 - [Synthesis](#synthesis)
   - [Hierarchical Synthesis](#hierarchical-synthesis)
   - [Flat Synthesis](#flat-synthesis)
@@ -29,6 +31,7 @@ We will achieve the above using iverilog for simulations and yosys for synthesis
   - [Glitch](#glitch)
   -  [Flop coding](#flop-coding)
   -  [Special Optimizations](#special-optimizations)
+## Day 3
 - [Optimisations](#optimisations) 
   - [Combinational Logic Optimisation](#combinational-logic-optimisation)
     - [Constant Propogation](#constant-propogation)
@@ -38,9 +41,11 @@ We will achieve the above using iverilog for simulations and yosys for synthesis
     - [State Optimisation](#state-optimisation)
     - [Retiming](#Retiming) 
     - [Cloning](#Cloning)
+## Day 4
 - [Gate Level Simulation](#gate-level-simulation)
   - [Incomplete sensitivity list](#Incomplete-sensitivity-list) 
   - [Blocking and Non-Blocking Statements](#Blocking-and-Non-Blocking-Statements)
+## Day 5
 - [If Statements](#If-Statements)
 - [Case Statements](#Case-Statements)
   - [Incomplete Case](#Incomplete-Case)
