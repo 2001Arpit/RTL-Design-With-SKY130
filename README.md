@@ -301,6 +301,24 @@ library to a target architecture.
 ![gates opt eg](https://user-images.githubusercontent.com/92947276/166268426-fc905586-9f44-47a3-b804-4f8c1493ac89.PNG)
  
 -This reduces the numbers of transistors in our design from 6 to 2 MOSFETs.
+  
+- Cosider the following code:
+  
+![check3 code](https://user-images.githubusercontent.com/92947276/166291937-3f53decf-aded-47c9-b539-ab72084accca.PNG)
+
+- It is a code for a multiplexer circuit, lets see how to optimize it.
+- After `synth -top opt_check3` use the command `opt_clean -purge` to optimize your design
+- According to Yosys documentation:
+  - opt_clean : This pass identifies wires and cells that are unused and removes them. Other
+passes often remove cells but leave the wires in the design or reconnect the
+wires but leave the old cells in the design. This pass can be used to clean up
+after the passes that do the actual work.
+  - -purge : also remove internal nets if they have a public name
+- Here is a comparison between a non-optimised netlist and an optimised netlist:
+  
+![check3 no_opt netlist](https://user-images.githubusercontent.com/92947276/166292945-643c4a5d-2135-4bca-b784-da23ef1381d3.PNG)
+![check3 opt netlist](https://user-images.githubusercontent.com/92947276/166292977-9461d141-499b-405a-bedd-1be32d07f6c4.PNG)
+
 
 ### Boolean Logic Optimisation
 - Consider the following boolean logic: `a?(b?c:(c?a:0)):(!c)`
