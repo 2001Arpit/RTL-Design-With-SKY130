@@ -489,7 +489,9 @@ Let us look at the simulation result:
   - Incomplete cases cause inferred latches.
   - Partial assignments also cause inferred latches.
   - Overlapping cases give rise to unpredictable behaviour.                                   
-  - Default statement does not guarantee the absence of inferred latches.                                 
+  - Default statement does not guarantee the absence of inferred latches.        
+
+## Incomplete Case                                    
 - Consider the following codes:
                                     
 ![cases cose](https://user-images.githubusercontent.com/92947276/166322458-65beeb8c-f819-488f-b629-ff02c42f3067.PNG)
@@ -521,13 +523,39 @@ Let us look at the simulation result:
                                     
 ![complete case circuit](https://user-images.githubusercontent.com/92947276/166324315-976b5885-1cec-43a9-9234-33f53bc39ccf.PNG)
                                     
+## Partial Assignment
+- The following code contains partial assignment:                                    
                                     
+![partial case code](https://user-images.githubusercontent.com/92947276/166325032-a3328362-e16f-42dd-a0fe-5ca7cfddd30c.PNG)
                                     
+- In case sel = 01, it has failed to give value to `x`.
+- The simulation results are similar to incomplete case, here only `x` gets latched to its previous output at sel = 01. This is an example of 'default case do not prevent inferred latches'.                                 
+- The synthesis produces the following:                                    
                                     
+![partial case synth](https://user-images.githubusercontent.com/92947276/166325595-63a115d3-ece8-405f-94de-5aa7c277a772.PNG)
+![partial case show](https://user-images.githubusercontent.com/92947276/166325646-be546234-7b34-4071-a4f8-c6bb02cf5fba.PNG)
+                                                                       
+- We can see in the reports that a latch has been generated.                                    
+- Here is a simplified version of the logic diagram:                                    
                                     
+![partial case circuit](https://user-images.githubusercontent.com/92947276/166326114-a03a8ab4-8638-4d01-8259-4f922ce31482.PNG)
+
+## Overlapping cases                                   
+- Consider the following code:                                    
                                     
+![bad case code](https://user-images.githubusercontent.com/92947276/166326424-4adefdc6-b3a2-4856-93ad-dc3431000946.PNG)
                                     
+- Here at sel = 10, it satisfies the 3rd and 4th cases. This overlap is undesirable and causes unpredictable behaviour as shown:
                                     
+![bad case gtk](https://user-images.githubusercontent.com/92947276/166326630-356259be-b2c0-4ba5-8870-0e6e08bf4d95.PNG)
+                                    
+- Note that this is not the behaviour of an inferred latch as shown in the synthesis report (zero latches):                                     
+                                    
+![bad case synth](https://user-images.githubusercontent.com/92947276/166326959-8acee3ee-f253-47b1-bd1d-276d4ba6b55e.PNG)
+                                    
+- This is fixed by conducting a GLS:                                    
+                                    
+![bad case gls gtk](https://user-images.githubusercontent.com/92947276/166327067-7ac7d65c-e13b-4a3a-9233-73f65760cc05.PNG)
                                     
                                     
                                     
