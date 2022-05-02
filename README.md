@@ -15,6 +15,7 @@ We will achieve the above using iverilog for simulations and yosys for synthesis
 
 # Table of Contents
 - [Introduction](#introduction)
+  -[RTL](#RTL) 
 
 # Introduction
 ## RTL (Register Transfer Level) Design
@@ -391,6 +392,9 @@ This is correct because the gate-level netlist is not concerned with the sensiti
 
 ![good mux net](https://user-images.githubusercontent.com/92947276/166305853-584dca28-27b0-4674-8d5d-4ec6d702b9e4.PNG)
 ![bad mux net](https://user-images.githubusercontent.com/92947276/166305865-576870f5-9223-4314-8c20-8ec9c1eca43a.PNG)
+  
+- We can see that they are the same, thus proving that the netlist does not care about an incomplete sensitivity list.
+- It should also be noted that Yosys will try to warn you if your design has an incomplete sensitivity list.
 
 
   
