@@ -115,10 +115,13 @@ library to a target architecture.
 
 ## PVT
   - PVT stands for Process, Voltage, Temperature. It is a very common to see these three things once you open your library file.
+  
   ![pvt](https://user-images.githubusercontent.com/92947276/166227047-64d166ba-5e0b-4198-8aaa-a0dcc8c5edaa.PNG)
   
-- There are various parameters mentioned in the .lib file. Some of them are 'technology' and 'delay model'.
-  
-![library](https://user-images.githubusercontent.com/92947276/166227799-a7355b68-f9a3-4be0-84d6-2bd27ecb6321.PNG)
+- You can look foe specific cells in the file by: `:/<keyword>`
+- Example: lets look for a a2111o cell. The function of this cell is ((a&b)|c|d|e).
+- `:/a2111o`
+
+![a2111o](https://user-images.githubusercontent.com/92947276/166228616-734c7d39-990d-4dfe-8775-87ea39456129.PNG)
 
 
