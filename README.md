@@ -53,8 +53,8 @@ We will achieve the above using iverilog for simulations and yosys for synthesis
   - [Overlapping cases](#Overlapping-cases)
 - [Loops](#Loops)
   - [For Loops](#For-Loops)
-- [Conlusion](#Conlusion)
-- [Acknowledgements](#Acknowledgements)
+## [Conlusion](#Conlusion)
+## [Acknowledgements](#Acknowledgements)
 
 # Introduction
 ## RTL (Register Transfer Level) Design
