@@ -25,5 +25,9 @@ Designing circuits whose building blocks are registers and other datapath compon
 We will be viewing the simulation results using a waveform viewer known as gtkwave. It uses a .vcd file to produce the waveform. VCD stands for value change dump. It is a dump file that the gtkwave uses for simulation.
 - A testbench provides these 'changes' in values. A testbench is a Verilog program that checks the functionality of our design by giving various possible inputs to the
 design.  
-
 ![image](https://user-images.githubusercontent.com/92947276/166210377-a6ea5c51-9946-4413-93fc-590ca29538b0.png)
+
+## Yosys
+- We will be using Yosys for the synthesis of our Verilog designs. It will convert our RTL design to a gate-level netlist.
+- Yosys uses a synthesis script to read a design from a Verilog file, synthesizes it to a gate-level netlist using the cell library and writes the synthesized results as a Verilog netlist. The synthesis script will be written by the user on the terminal.
+- 
