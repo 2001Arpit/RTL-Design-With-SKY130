@@ -99,7 +99,7 @@ library to a target architecture.
   
 - In practical world setup analysis is used to improve performance and hold analysis is used to prevent data corruption. 
 
-What makes these cells fast and slow are:
+- What makes these cells fast and slow are:
   - Charging/ Discharging of capacitance.
   - Faster cells are wider, whereas slower cells are narrower.
   - This also makes the faster cells occupy more area and consume more power.
