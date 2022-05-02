@@ -258,3 +258,97 @@ library to a target architecture.
 
 ![TRUTH](https://user-images.githubusercontent.com/92947276/166260750-ad1eac61-a2d2-4b20-9e8e-ab5daa120fb7.PNG)
 
+- We can observe that the output has shifted to the left by one bit. This simplifies the entire logic circuits to just a few wires.
+- After `synth -top mult_2` command in Yosys we can observe that there are no cells:
+  
+![mult2 synth](https://user-images.githubusercontent.com/92947276/166261288-fe134456-c8cd-4692-8247-dd8acb493a89.PNG)
+  
+- After synthesis we get the following logic diagram and net list:
+  
+![mult2 show](https://user-images.githubusercontent.com/92947276/166261400-0a4dd02a-5d75-454e-b5df-0973de122a0f.PNG)
+
+![mult2 net](https://user-images.githubusercontent.com/92947276/166261464-af589dbe-9532-47fb-ae5b-c570cc8892e1.PNG)
+
+- In the second code we are multiplying the input with 9. This a similar case were we dont have to use any logic components for its synthesis.
+- It is equivalent to:
+  
+![mult9](https://user-images.githubusercontent.com/92947276/166262854-18023687-7a85-4b6e-9b73-38caf26780d9.PNG)
+
+- After synthesis we get the following logic diagram and netlist:
+  
+![mult9 show](https://user-images.githubusercontent.com/92947276/166263027-3f688503-3557-48d9-a0bb-18325718b659.PNG)
+  
+![mult9 net](https://user-images.githubusercontent.com/92947276/166263056-da34b199-e4dc-40e2-8c67-f7f0631acb0b.PNG)
+  
+- We can see that the required components have been reduced to just some wires again. 
+  
+# Optimisations
+- Under optimisation, we try to reduce the components/ size of the logic circuit as much as possible to get the most optimised design
+- This results in area and power consumption reduction.
+- There are two types of optimisations:
+  - Combinational logic optimisation
+  - Sequential logic optimisation
+  
+## Combinational Logic Optimisation
+- Some techniques used to optimise a combinational circuits are:
+  - Constant Propogation
+  - Boolean Logic Optimisation
+  
+### Constant Propogation:
+- Consider the following logic: Y = ((AB)+C)', where A is grounded.
+- The logic circuit of the following can be reduced as follows:
+  
+![gates opt eg](https://user-images.githubusercontent.com/92947276/166268426-fc905586-9f44-47a3-b804-4f8c1493ac89.PNG)
+ 
+-This reduces the numbers of transistors in our design from 6 to 2 MOSFETs.
+
+### Boolean Logic Optimisation
+- Consider the following boolean logic: `a?(b?c:(c?a:0)):(!c)`
+- It is one of many ways to design a multiplexer circuit in Verilog.
+
+![mux comb opt](https://user-images.githubusercontent.com/92947276/166269532-21e1ce69-5e4f-44a3-b9fe-3c7fc12b014e.PNG)
+
+- As you can see that the above circuit can be reduced to simple XOR gate.
+
+## Sequential Logic Optimisation
+- Some Techniques used to optimise Sequential logic are:
+  - Sequential constant propogation
+  - State optimisation
+  - Retiming
+  - Clonning
+  
+### Sequential Constant Propogation
+- Consider the following circuit:
+  
+![seq](https://user-images.githubusercontent.com/92947276/166276517-220d57f8-4127-436c-847d-5047d51d3a6f.PNG)
+
+- We can observe that no matter what value of reset or clock is given, the output will always be 1. This makes our entire circuit redundant. 
+
+### State Optimisation
+- It refers to the optimisation of unused states. We try to implement a state machine with the least number of states possible.
+  
+### Retiming
+- It is the technique of shifting logic around to improve your maximum operational frequency.
+  
+### Cloning
+- Consider the following circuit:
+
+![state opt](https://user-images.githubusercontent.com/92947276/166289082-f75c1867-e5d3-47e5-8998-0d012601280e.PNG)
+
+- Assume we have ample positive slack at A, which means that data can reach A a little later, and flop C does not meet setup time due to the large distance from A. To solve this issue, we can duplicate (clone) A to meet the timing of C as shown below:
+  
+![state opt2](https://user-images.githubusercontent.com/92947276/166289815-69c1c793-483c-4ee2-84ae-f2dbd9d8300b.PNG)
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
