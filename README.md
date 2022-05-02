@@ -87,6 +87,7 @@ library to a target architecture.
 
 ## Standard cell Library
   
+- sky130_fd_sc_hd__tt_025C_1v80.lib : 
 - The .lib file is a collection of logical modules. It contains different 'flavours' of gates:
   - slow
   - medium 
@@ -95,8 +96,11 @@ library to a target architecture.
 - Setup and hold time creates a window around the clock edge where the data cannot be toggled, or it can cause metastability (uncertainty). 
   
 ![image](https://user-images.githubusercontent.com/92947276/166223384-4d4967e4-f105-4ba0-9a34-3509861a4aa7.png)
+  
+- In practical world setup analysis is used to improve performance and hold analysis is used to prevent data corruption. 
 
 What makes these cells fast and slow are:
   - Charging/ Discharging of capacitance.
   - Faster cells are wider, whereas slower cells are narrower.
   - This also makes the faster cells occupy more area and consume more power.
+- We might also need to use slow cells due to the maximum operating frequency of the design. The maximum frequency is limited by the critical path (path whose propagation delay is the highest). 
