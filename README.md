@@ -128,8 +128,5 @@ library to a target architecture.
   
 - We will now compare the different flavours of the same gate:
   
-<p float="left">
-  <img src="![and2_0 cell](https://user-images.githubusercontent.com/92947276/166229680-93ef2cd0-82f0-4a5e-ab73-f9b596b07fe0.PNG)" width="100" />
-  <img src="![and2_2 cell](https://user-images.githubusercontent.com/92947276/166229714-6454d3d4-3bb2-4276-9327-4d4718fa7861.PNG)" width="100" /> 
-  <img src="![and2_4 cell](https://user-images.githubusercontent.com/92947276/166229741-6d00544e-7949-454c-8aeb-6c6edf79e309.PNG)" width="100" />
-</p>  
+<img src="![and2_0 cell](https://user-images.githubusercontent.com/92947276/166230003-7f8a6c32-e544-4130-926e-b2269d428fa5.PNG)" width="425"/> <img src="![and2_2 cell](https://user-images.githubusercontent.com/92947276/166230028-40bd1d37-9ebd-442a-b3a4-f1a44749bf19.PNG)" width="425"/> <img src="![and2_4 cell](https://user-images.githubusercontent.com/92947276/166230078-297b98b3-6db3-45a7-9c01-79e5c0ae9ef3.PNG)
+" width="425"/> 
