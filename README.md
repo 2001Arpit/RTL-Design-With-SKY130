@@ -32,6 +32,7 @@ design.
 - If there were no errors, this will create a 'a.out' file in your current working directory. 'a.out' is an output file. Running this file will create .vcd file which will be used for simulation. To run the 'a.out' file use the following command: `./a.out` or `vvp a.out`.
 - Note that the default .vcd file name will be tb_<module name>.vcd.
 - Once the .vcd file has been generated, we can finally view the output using gtkwave: `gtkwave tb_good_counter.vcd`
+![gtkwave counter](https://user-images.githubusercontent.com/92947276/166216505-5ff65b2b-64b1-4bc5-af42-8e4006b9005d.PNG)
 
 ## Yosys
 - We will be using Yosys for the synthesis of our Verilog designs. It will convert our RTL design to a gate-level netlist.
