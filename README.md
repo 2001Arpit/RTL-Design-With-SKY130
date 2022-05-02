@@ -81,8 +81,8 @@ library to a target architecture.
 
 - Now we can write the netlist for the design. A netlist is a gate-level description of your design that specifies the components and their interconnections.
 - `write_verilog -noattr good_counter_net.v`
-- Use the -noattr to make the netlist easy to read.
+- Use the -noattr to make the netlist easy to read. Here is a comparision between using and not using -noattr.
   
-![mux write verilog](https://user-images.githubusercontent.com/92947276/166221185-0c4e9f4c-0586-4cf4-b2e7-195bbe3eb1b3.PNG) ![mux write verilog noattr](https://user-images.githubusercontent.com/92947276/166221205-5e757817-dff0-4d21-b7b0-d3e50f4eb3b3.PNG)
+![mux write verilog noattr](https://user-images.githubusercontent.com/92947276/166221205-5e757817-dff0-4d21-b7b0-d3e50f4eb3b3.PNG) ![mux write verilog](https://user-images.githubusercontent.com/92947276/166221185-0c4e9f4c-0586-4cf4-b2e7-195bbe3eb1b3.PNG) 
 
 
