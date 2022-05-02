@@ -39,7 +39,7 @@ We will achieve the above using iverilog for simulations and yosys for synthesis
     - [Retiming](#Retiming) 
     - [Cloning](#Cloning)
 - [Gate Level Simulation](#gate-level-simulation)
-  - [Incomplete sensitivity list](#Incomplete sensitivity list) 
+  - [Incomplete sensitivity list](#Incomplete-sensitivity-list) 
 
 # Introduction
 ## RTL (Register Transfer Level) Design
