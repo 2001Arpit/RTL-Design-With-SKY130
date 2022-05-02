@@ -26,6 +26,10 @@ We will be viewing the simulation results using a waveform viewer known as gtkwa
 - A testbench provides these 'changes' in values. A testbench is a Verilog program that checks the functionality of our design by giving various possible inputs to the
 design.  
 ![image](https://user-images.githubusercontent.com/92947276/166210377-a6ea5c51-9946-4413-93fc-590ca29538b0.png)
+-Lets take an example of a counter which counts from 0 to 2:
+![counter program and test bench](https://user-images.githubusercontent.com/92947276/166214568-e9dfe5ad-e354-46e7-9986-99eb70d7a71c.PNG)
+- To run these files using iverilog, use the following command : `iverilog good_counter.v tb_good_counter.v`
+- 
 
 ## Yosys
 - We will be using Yosys for the synthesis of our Verilog designs. It will convert our RTL design to a gate-level netlist.
