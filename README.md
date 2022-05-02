@@ -190,3 +190,38 @@ library to a target architecture.
 ![multiple modules flat show](https://user-images.githubusercontent.com/92947276/166241938-075f8261-d847-4050-980d-f3fcf57a6903.PNG)
 
 - We can compare from the previous diagram that the sub-modules are no longer present and have been replaced by standard cells.
+
+## Sub-module Level Synthesis
+- Sometimes we prefer sub-module level synthesis when we have too many instantiations of the same module or when we have a massive design with a large number of modules. In this case, we prefer to synthesise modules portion by portion so that the tool can write a more optimised netlist.
+- We can do this in Yosys by simply using the command: `synth -top submodule1`.
+- This will synthesise only the specified module and not the entire design.
+
+# Flops
+## Glitch
+- A glitch is a small spike that happens at the output. It occurs due to the delays in gates.
+- I have simulated the same combinational circuit discussed above, ie (a&b)|c, in modelsim with gates initialised with delays, here is the result:
+
+![glitch code](https://user-images.githubusercontent.com/92947276/166246967-766f4067-6bce-4360-9e45-e49577137b3f.PNG)
+![glitch](https://user-images.githubusercontent.com/92947276/166246994-68b80dd4-1ff0-4b90-85f6-6fbf242fc265.PNG)
+
+- It can be seen that the output goes low even though the logic is equal to 1.
+- This can be prevented by inserting a D-flip flop in between the combinational circuit as such:
+
+![shield](https://user-images.githubusercontent.com/92947276/166247862-06a77a23-452c-40d4-b8a8-6b3e2c7c2033.PNG)
+
+- This keeps the output at the flop stable, keeping the rest of the circuit stable. This process is called shielding. Q is shielded from changes in d due to clk.
+  
+## Flop coding
+- We need to initialise the flop before use, or it will use garbage value.
+- Initialising can be done by resetting it. There are two types of reset:
+  - Asynchronous reset
+  - Synchronous reset
+- A flop can have either one or both types of reset, as shown in the code:
+  
+![all reset](https://user-images.githubusercontent.com/92947276/166249167-b370a658-6809-46cd-b9b1-92a057c567d7.PNG)
+  
+- A flop with Asynchronous reset can be reset at any time irrespevctive of clock edge, that is why we have put `posedge clk, posedge reset` in the sensitivity list.
+- A __sensitivity list__ has all the inputs at which the always block will activate.
+
+  
+  
