@@ -135,3 +135,15 @@ library to a target architecture.
 # Synthesis
 ## Hierarchical Synthesis
   
+- Sometimes a design contains multiple modules. These modules will have a hierarchy, with the top module being the one that calls the other modules. 
+- Example: A full adder consisting 2 half adders. Here the half adder module will be instantiated within the full adder module twice.
+  
+- Lets consider another example where we are tryning to implement this logic:
+  
+![comb](https://user-images.githubusercontent.com/92947276/166233434-ecac37bf-7715-478f-96db-cbf06f30164a.PNG)
+
+- The code is:
+  
+![multiple module code](https://user-images.githubusercontent.com/92947276/166233503-9c6953a0-2efd-4486-b2aa-ed9ce15e599f.PNG)
+
+- 
