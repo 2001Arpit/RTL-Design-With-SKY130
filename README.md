@@ -30,7 +30,8 @@ design.
 ![counter program and test bench](https://user-images.githubusercontent.com/92947276/166214568-e9dfe5ad-e354-46e7-9986-99eb70d7a71c.PNG)
 - To run these files using iverilog, use the following command: `iverilog good_counter.v tb_good_counter.v`.
 - If there were no errors, this will create a 'a.out' file in your current working directory. 'a.out' is an output file. Running this file will create .vcd file which will be used for simulation. To run the 'a.out' file use the following command: `./a.out` or `vvp a.out`.
-- 
+- Note that the default .vcd file name will be tb_<module name>.vcd.
+- Once the .vcd file has been generated, we can finally view the output using gtkwave: `gtkwave tb_good_counter.vcd`
 
 ## Yosys
 - We will be using Yosys for the synthesis of our Verilog designs. It will convert our RTL design to a gate-level netlist.
