@@ -18,6 +18,20 @@ We will achieve the above using iverilog for simulations and yosys for synthesis
   - [RTL](#rtl) 
   - [Icarus Verilog](#icarus-verilog)
   - [Yosys](#yosys)
+- [Standard Cell Library](#standard-cell-library)
+  - [Different Flavours of cells](#different-flavours-of-cells)
+  - [PVT](#pvt)
+- [Synthesis](#synthesis)
+  - [Hierarchical Synthesis](#hierarchical-synthesis)
+  - [Flat Synthesis](#flat-synthesis)
+  - [Sub-module Level Synthesis](#sub-module-level-synthesis)
+- [Flops](#flops)
+  - [Glitch](#glitch)
+  -  [Flop coding](#flop-coding)
+  -  [Special Optimizations](#special-optimizations)
+- [Optimisations](#optimisations) 
+  - [Combinational Logic Optimisation](#combinational-logic-optimisation)
+    - [Constant Propogation](#constant-propogation)
 
 # Introduction
 ## RTL (Register Transfer Level) Design
