@@ -53,6 +53,8 @@ We will achieve the above using iverilog for simulations and yosys for synthesis
   - [Overlapping cases](#Overlapping-cases)
 - [Loops](#Loops)
   - [For Loops](#For-Loops)
+- [Conlusion](#Conlusion)
+- [Acknowledgements](#Acknowledgements)
 
 # Introduction
 ## RTL (Register Transfer Level) Design
@@ -608,5 +610,13 @@ Let us look at the simulation result:
                                     
 - We can see that there were no latches in this design unlike mux_generate.v. We did not use reg type outputs. Therefore we can confidently conclude that the latch in mux_gen was due to reg type output.                                    
                                     
+                                    
+# Conlusion   
+- Learned about RTL design and how to use iverilog and Yosys to simulate and synthesise these designs. The most exciting part of the workshop was playing around with the .lib file and learning about the various parameters mentioned in it. In addition, I learned different optimisation techniques for both combinational and sequential logic. Learned how GLS works and how to use for constructs.                                    
+                                    
+# Acknowledgements
+- [Kunal Ghosh](https://github.com/kunalg123), Co-founder, VSD Corp. Pvt. Ltd.                                    
+- [Shon Taware](https://www.linkedin.com/in/shon-taware/?originalSubdomain=in), RTL Design Engineer at Chipspirit Technologies                                 
+- And all the people who helped organise this workshop.                                    
                                     
                                     
