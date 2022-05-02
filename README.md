@@ -146,4 +146,17 @@ library to a target architecture.
   
 ![multiple module code](https://user-images.githubusercontent.com/92947276/166233503-9c6953a0-2efd-4486-b2aa-ed9ce15e599f.PNG)
 
-- 
+- It consists of 2 sub-modules, one for OR operation and another for AND operation. Both of them are being instantiated in the top module.
+  
+- We will now sythesise it using Yosys.
+- First read the library file to import standard cells.
+- Then read the verilog file.
+- synthesise the design : `synth -top multiple modules`
+  
+![multiple module synth](https://user-images.githubusercontent.com/92947276/166234937-25c9105d-9703-480d-8aa0-641ca9011b90.PNG)
+  
+![multiple module synth2](https://user-images.githubusercontent.com/92947276/166235040-367130ed-9664-4a2f-bd95-67abe198e261.PNG)
+  
+- This will show you all the submodules in your design along with your design hierarchy. In addition, we can observe that the report mentions which cells will be used in the sub-modules.
+  
+
