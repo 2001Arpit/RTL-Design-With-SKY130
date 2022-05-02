@@ -3,13 +3,13 @@
 
 # Overview
 This workshop aims to teach
--Verilog coding guidelines 
--Synthesizable Verilog codes
--Synthesis
--Optimizations
--Synthesis-Simulation mismatch
--If statements
--For loop and For generate.
+- Verilog coding guidelines 
+- Synthesizable Verilog codes
+- Synthesis
+- Optimizations
+- Synthesis-Simulation mismatch
+- If statements
+- For loop and For generate.
 
 We will achieve the above using iverilog for simulations and yosys for synthesis. In addition, we will be using sky130 standard cell libraries. It will tell our synthesis tool which component to use for our design. This library contains details like power consumption, delays, area, etc.
 
