@@ -32,6 +32,11 @@ We will achieve the above using iverilog for simulations and yosys for synthesis
 - [Optimisations](#optimisations) 
   - [Combinational Logic Optimisation](#combinational-logic-optimisation)
     - [Constant Propogation](#constant-propogation)
+    - [Boolean Logic Optimisation](#boolean-logic-optimisation)
+  - [Sequential Logic Optimisation](#sequential-logic-optimisation)
+    - [Sequential Constant Propogation](#sequential-constant-propogation)
+    - [State Optimisation](#state-optimisation)
+    - [Retiming](#Retiming) 
 
 # Introduction
 ## RTL (Register Transfer Level) Design
